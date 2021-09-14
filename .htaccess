@@ -1,0 +1,3 @@
+<FilesMatch "\.(css)$">
+Header set Cache-Control "max-age=1"
+</FilesMatch>
