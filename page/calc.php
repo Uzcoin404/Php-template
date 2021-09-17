@@ -38,13 +38,13 @@
         if ($symbol == '+') {
             $answer = $one + $two;
         }
-        if ($symbol == '-') {
+        else if ($symbol == '-') {
             $answer = $one - $two;
         }
-        if ($symbol == '*') {
+        else if ($symbol == '*') {
             $answer = $one * $two;
         }
-        if ($symbol == '/') {
+        else if ($symbol == '/') {
             $answer = $one / $two;
         }
         $result = '<div class="head__title__blog" style="margin: 30px 0; width: min-content"><h2 class="head__title">' . $answer . '</h2></div>';

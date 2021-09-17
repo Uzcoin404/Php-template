@@ -12,7 +12,6 @@
                     <a href="./?route=<?= $address?>" class="menu__list-link <?= $_GET['route'] == $address ? 'active' : ''?>"  data-aos="fade-right" data-aos-duration="1000" data-aos-delay="<?= $i+=100?>">
                     <i class="<?= $info['icon']?>"></i><?= $info['name']?></a>
                   </li>
-
                 <?}?>
             </ul>
 </aside>

@@ -1,4 +1,4 @@
-// AOS.init();
+AOS.init();
 class REVIEWS {
     constructor(options) {
         for (const key in options) {

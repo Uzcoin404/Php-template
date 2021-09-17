@@ -20,6 +20,10 @@ $pages = [
         'name' => 'Слайдер',
         'icon' => 'far fa-presentation'
     ],
+    'slider' => [
+        'name' => 'Слайдер Тест',
+        'icon' => 'far fa-presentation'
+    ],
     'guest' => [
         'name' => 'Гостевая книга',
         'icon' => 'fal fa-books'
@@ -30,5 +34,5 @@ $pages = [
     ]
 ];
     
-$path = $_GET['route'];
+$path = $_GET['route'] ?? '404';
 ?>

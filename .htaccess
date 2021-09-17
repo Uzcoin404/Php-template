@@ -1,3 +1,1 @@
-<FilesMatch "\.(css)$">
-Header set Cache-Control "max-age=1"
-</FilesMatch>
+ErrorDocument 404 /index.php
