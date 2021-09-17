@@ -3,7 +3,7 @@
         <div class="head__title__blog"><h2 class="head__title">Калькулятор</h2></div>
         <p class="head__date">Сегодня 03 Март 2020 год</p>
     </section>
-    <form action="" class="form" method="get">
+    <form action="" class="form" method="post">
         <label class="form__label">
             <span class="form__text">Число 1</span>
             <input type="text" class="form__input" name="one" data-type="number">
@@ -22,14 +22,35 @@
                 <option value="/">/</option>
             </select>
         </div>
+
         <label class="form__label">
             <span class="form__text">Число 2</span>
             <input type="text" class="form__input" name="two" data-type="number"> 
         </label>
         <button class="form__btn">Посчитать</button>
     </form>
+    <?
+        $one = $_POST['one'];
+        $two = $_POST['two'];
+        $symbol = $_POST['symbol'];
+        $answer = 0;
+        var_dump($symbol);
+        if ($symbol == '+') {
+            $answer = $one + $two;
+        }
+        if ($symbol == '-') {
+            $answer = $one - $two;
+        }
+        if ($symbol == '*') {
+            $answer = $one * $two;
+        }
+        if ($symbol == '/') {
+            $answer = $one / $two;
+        }
+        $result = '<div class="head__title__blog" style="margin: 30px 0; width: min-content"><h2 class="head__title">' . $answer . '</h2></div>';
+        echo $result;
+    ?>
     <section class="body">
-        <div class="head__title__blog"><h2 class="head__title" style="margin: 30px 0; width: min-content">Калькулятор</h2></div>
         <div class="calc" name="calc">
             <div class="calc__input">
                 <input type="text" name="evalInput" readonly="">
@@ -72,9 +93,6 @@
             calcInput.value += calcNumber[i].innerHTML;
         });
     }
-    // document.addEventListener("keydown", function(event) {
-    //     console.log(event.which);
-    // })
     function calculatorEqual(){
         let endInput = calcInput.value.substr(calcInput.value.length-1);
         if (endInput == '+' || endInput == '-' || endInput == '*' || endInput == '/' || endInput == '%' || endInput == '.') {

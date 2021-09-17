@@ -442,6 +442,7 @@ textarea.form__input {
     padding: 7px 0;
     border-radius: 2px;
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.445);
+    color: #000;
     position: absolute;
     z-index: 1;
     width: 0;
