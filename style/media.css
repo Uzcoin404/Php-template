@@ -1,0 +1,12 @@
+@media (max-width: 776px) {
+    .logo{
+        font-size: 25px;
+    }
+    .head__title{
+        padding: 15px 20px;
+    }
+    .head__date{
+        margin-left: 15px;
+        line-height: 24px;
+    }
+}

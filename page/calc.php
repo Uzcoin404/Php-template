@@ -1,4 +1,4 @@
-<main class="main" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="1000">
+<main class="main" data-aos="zoom-in-up" data-aos-duration="1000" data-aos-delay="200">
     <section class="head">
         <div class="head__title__blog"><h2 class="head__title">Калькулятор</h2></div>
         <p class="head__date">Сегодня 03 Март 2020 год</p>
@@ -34,7 +34,6 @@
         $two = $_POST['two'];
         $symbol = $_POST['symbol'];
         $answer = 0;
-        var_dump($symbol);
         if ($symbol == '+') {
             $answer = $one + $two;
         }
@@ -47,7 +46,7 @@
         else if ($symbol == '/') {
             $answer = $one / $two;
         }
-        $result = '<div class="head__title__blog" style="margin: 30px 0; width: min-content"><h2 class="head__title">' . $answer . '</h2></div>';
+        $result = '<div class="head__title__blog" style="margin: 30px 0; width: min-content"><h2 class="head__title">Answer: ' . $answer . '</h2></div>';
         echo $result;
     ?>
     <section class="body">
@@ -77,17 +76,24 @@
                 <div class="calc__items calc__char">/</div>
             </div>
             <div class="calc__footer calc__equal">=</div>
-            <div class="calc__items calc__footer calc__char">%</div>
+            <div class="calc__footer calc__items calc__char">%</div>
+            <div class="calc__scroller">
+                <p class="icon__tooltip">Siljitish uchun ushlab turib suring!</p>
+                <i class="fas fa-calculator" id="calc__icon"></i>
+            </div>
         </div>
     </section>
 </main>
 <script>
-    let calcInput = document.querySelector('.calc__input input');
-    let calcNumber = document.querySelectorAll('.calc__items');
-    let calcChar = document.querySelectorAll('.calc__char');
-    let calcEqual = document.querySelector('.calc__equal');
-    let backspace = document.querySelector('.backspace');
-    let calcDelete = document.querySelector('.delete');
+    const calc = document.querySelector('.calc');
+    const calcInput = document.querySelector('.calc__input input');
+    const calcNumber = document.querySelectorAll('.calc__items');
+    const calcChar = document.querySelectorAll('.calc__char');
+    const calcEqual = document.querySelector('.calc__equal');
+    const backspace = document.querySelector('.backspace');
+    const calcDelete = document.querySelector('.delete');
+    const calcMinimize = document.querySelector('.calc__minimize');
+    const calcIcon = document.querySelector('#calc__icon');
     for (let i = 0; i < calcNumber.length; i++) {
         calcNumber[i].addEventListener('click', function(){
             calcInput.value += calcNumber[i].innerHTML;
@@ -114,6 +120,28 @@
     calcDelete.addEventListener('click', function(){
         calcInput.value = "";
     });
+    var x = 0, 
+        y = 0, 
+        mousedown = false; 
+
+    calcIcon.addEventListener('mousedown', function (e) { 
+        mousedown = true; 
+        x = calc.offsetLeft - e.clientX; 
+        y = calc.offsetTop - e.clientY - calc.clientHeight;
+        this.classList.add('active');
+    }, true); 
+    document.addEventListener('mouseup', function (e) { 
+        mousedown = false;
+        calcIcon.classList.remove('active');
+    }, true); 
+
+    document.addEventListener('mousemove', function (e) { 
+        if (mousedown) { 
+            calc.style.left = e.clientX + x + 'px'; 
+            calc.style.top = e.clientY + y + 'px'; 
+        } 
+    }, true); 
+
     document.addEventListener("keydown", function(event) {
         if (event.keyCode == 13) {
             calculatorEqual();

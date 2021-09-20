@@ -4,13 +4,13 @@ html,
 body{
   overflow: hidden;
 }
+body{
+  min-height: 100vh;
+}
 
 .blog404{
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   margin: 0px;
   background: radial-gradient(circle, #240015 0%, #12000b 100%);
   overflow: hidden;

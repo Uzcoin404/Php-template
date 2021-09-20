@@ -20,11 +20,12 @@ a {
     text-decoration: none;
 }
 .wrap {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 0 15px 15px;
+    padding: 0 20px 20px;
     width: 100%;
+}
+.mainBody{
+    display: flex;
+    justify-content: space-between;
 }
 .header {
     width: inherit;
@@ -32,9 +33,9 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid var(--extra);
-    margin: 0 -15px;
-    margin-bottom: 30px;
+    border-bottom: 1px solid #444c56;
+    margin-bottom: 15px;
+    z-index: 3;
 }
 .logo {
     color: #fff;
@@ -52,7 +53,12 @@ a {
     transition: 0.5s;
 }
 .menu {
-    max-width: 400px;
+    max-width: 300px;
+    min-width: 240px;
+    padding-right: 15px;
+    border-right: 1px solid #444c56;
+    transition: all .5s ease;
+    position: relative;
 }
 .menu__reviews {
     background: #ffcb02;
@@ -122,12 +128,10 @@ a {
 .main {
     background: var(--extra);
     min-height: max-content;
-    max-width: 900px;
-    min-width: 320px;
     width: 100%;
-    margin-left: 40px;
+    margin-left: 25px;
     border-radius: 15px;
-    padding: 20px;
+    padding: 15px;
     align-self: baseline;
     color: var(--menu-color);
 }
@@ -370,6 +374,43 @@ textarea.form__input {
     font-size: 20px;
     padding: 0 15px;
 }
+.calc__scroller{
+    position: absolute;
+    top: -75px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#calc__icon{
+    background: #ff7c02;
+    color: #fff;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 24px;
+    transition: .3s ease;
+    cursor: grab;
+}
+#calc__icon.active{
+    background: #fff;
+    color: #ff7c02;
+    transform: scale(0.9);
+    cursor: grabbing;
+}
+.icon__tooltip{
+    text-align: center;
+    font-size: 18px;
+    transform: scale(0);
+    transform-origin: bottom;
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    transition: .3s ease;
+}
+.calc__scroller:hover .icon__tooltip{
+    transform: scale(1);
+}
 .calc__functions{
     grid-column: span 2;
     font-size: 24px !important;
@@ -385,7 +426,7 @@ textarea.form__input {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #dadada;
+    background: #e4e4e4;
     font-size: 24px;
     border-radius: 10px;
     cursor: pointer;

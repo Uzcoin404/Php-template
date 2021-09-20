@@ -8,6 +8,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="../style/all.css">
     <link rel="stylesheet" href="../style/style.css">
+    <link rel="stylesheet" href="../style/media.css">
 </head>
 <body>
     <div class="wrap">
@@ -27,3 +28,4 @@
                 </ul>
             </div>
         </header>
+        <div class="mainBody">
