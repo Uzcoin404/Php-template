@@ -20,10 +20,6 @@ $pages = [
         'name' => 'Слайдер',
         'icon' => 'far fa-presentation'
     ],
-    'slider' => [
-        'name' => 'Слайдер Тест',
-        'icon' => 'far fa-presentation'
-    ],
     'guest' => [
         'name' => 'Гостевая книга',
         'icon' => 'fal fa-books'
@@ -31,6 +27,12 @@ $pages = [
     'test' => [
         'name' => 'Тест',
         'icon' => 'fal fa-vial'
+    ],
+    'login' => [
+        'name' => ''
+    ],
+    'registration' => [
+        'name' => ''
     ]
 ];
     

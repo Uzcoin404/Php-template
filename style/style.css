@@ -24,8 +24,8 @@ a {
     width: 100%;
 }
 .mainBody{
+    width: 100%;
     display: flex;
-    justify-content: space-between;
 }
 .header {
     width: inherit;
@@ -56,9 +56,17 @@ a {
     max-width: 300px;
     min-width: 240px;
     padding-right: 15px;
-    border-right: 1px solid #444c56;
     transition: all .5s ease;
     position: relative;
+}
+.menu__resizer{
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: col-resize;
+    padding-right: 10px;
+    width: 1px;
+    height: 100%;
 }
 .menu__reviews {
     background: #ffcb02;
@@ -129,7 +137,7 @@ a {
     background: var(--extra);
     min-height: max-content;
     width: 100%;
-    margin-left: 25px;
+    margin-left: 15px;
     border-radius: 15px;
     padding: 15px;
     align-self: baseline;

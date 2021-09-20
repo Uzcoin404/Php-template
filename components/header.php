@@ -20,7 +20,7 @@
             </div>
             <div class="user" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="800">
                 <div class="user__profile">
-                    <img src="/img/2.jpg" alt="" class="user__profile-img">
+                    <img src="/img/avatar/2.jpg" alt="" class="user__profile-img">
                     <h4 class="user__profile-name">Имя</h4>
                 </div>
                 <ul class="user__menu">

@@ -14,6 +14,7 @@
         </li>
       <?}?>
   </ul>
+  <div class="menu__resizer"><span></span></div>
 </aside>
 <script>
 </script>
