@@ -27,12 +27,6 @@ $pages = [
     'test' => [
         'name' => 'Тест',
         'icon' => 'fal fa-vial'
-    ],
-    'login' => [
-        'name' => ''
-    ],
-    'registration' => [
-        'name' => ''
     ]
 ];
     

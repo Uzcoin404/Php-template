@@ -1,7 +1,7 @@
 
-<main class="main" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="1000">
+<main class="main" data-aos="zoom-in-up" data-aos-duration="1000" data-aos-delay="200">
     <section class="head">
-        <h2 class="head__title">Вход в систему</h2>
+    <div class="head__title__blog"><h2 class="head__title">Вход в систему</h2></div>
         <p class="head__date">Сегодня 03 Март 2020 год</p>
     </section>
     <form action="" class="form" method="post">

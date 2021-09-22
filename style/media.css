@@ -9,4 +9,7 @@
         margin-left: 15px;
         line-height: 24px;
     }
+    .menu__icon{
+        display: block;
+    }
 }

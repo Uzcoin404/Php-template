@@ -1,69 +1,4 @@
 AOS.init();
-class REVIEWS {
-    constructor(options) {
-        for (const key in options) {
-            this[key] = document.querySelector(options[key]);
-        }
-        this.active = false;
-        this.coordinatStart = 0;
-        this.parent = this.el.parentElement;
-        this.el.addEventListener('mousedown', (e) => this.eventStart(e))
-        window.addEventListener('mousemove', (e) => this.eventMove(e))
-        window.addEventListener('mouseup', (e) => this.eventEnd(e))
-
-    }
-    eventStart(e) {
-        this.active = true
-        this.coordinatStart = e.clientX;
-    }
-    eventMove(e) {
-        if (this.active) {
-            let left = e.clientX - this.coordinatStart,
-                Left = 0,
-                widthMove = this.parent.clientWidth - 10 - this.el.clientWidth
-
-            if (left <= widthMove && left >= 0) {
-                Left = left
-                let protsent = 99 - parseInt((left * 100) / (widthMove / 2))
-                let protsent2 = protsent
-                if (protsent < 10 && protsent >= 0) {
-                    protsent2 = `0${protsent}`
-                } else if (protsent < 0) {
-                    protsent2 = 0;
-                }
-                this.extraEl.style.opacity = '.' + protsent2;
-            } else if (left < 0) {
-                Left = 0
-            } else {
-                Left = widthMove
-            }
-            this.el.style.left = Left + 'px';
-        }
-    }
-    eventEnd(e) {
-        this.active = false
-        let left = Number(this.el.style.left.split('').filter((a) => !isNaN(a)).join(''));
-        this.el.style.transition = '0.2s';
-        if (left >= this.parent.clientWidth - 10 - this.el.clientWidth - 20) {
-            this.el.style.left = this.parent.clientWidth - 10 - this.el.clientWidth + 'px';
-            this.extraEl.style.opacity = 0
-            location.href = this.el.getAttribute('data-href');
-        } else {
-            this.el.style.left = 0;
-            this.extraEl.style.opacity = 1
-            this.extraEl.style.transition = '0.2s';
-        }
-        setTimeout(() => {
-            this.el.style.transition = '0s'
-            this.extraEl.style.transition = '0s'
-        }, 200)
-
-    }
-}
-const reviews = new REVIEWS({
-    el: '.menu__reviews_span',
-    extraEl: '.menu__reviews_text'
-})
 
 class qElement {
     next(el) {
@@ -80,7 +15,6 @@ class qElement {
     }
 }
 const element = new qElement()
-
 class INPUT {
     constructor(options) {
         this.el = [...document.querySelectorAll(options.el)]
