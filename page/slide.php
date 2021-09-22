@@ -10,8 +10,8 @@
         $controls = '';
         include_once("slide.php");
         $result = '<div class="slider">';
-          $result .= '<div class="slider__line">';
-          foreach ($imgList as $index => $imgName) {
+        $result .= '<div class="slider__line">';
+        foreach ($imgList as $index => $imgName) {
             if (strpos($imgName, '.mp4')) {
               $imgVideo = 'video';
               $controls = 'controls style="width=100%;" autoplay';
@@ -25,7 +25,7 @@
             $result .= '<button class="slider__prev slider__btn"><i class="far  fa-chevron-left"></i></button>
             <button class="slider__next slider__btn"><i class="far  fa-chevron-right"></i></button>';
           $result .= '</div>';
-        $result .= '</div>';
+        $result .= '</div>';  
         echo $result;
     ?>
 </main>

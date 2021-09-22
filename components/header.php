@@ -27,5 +27,38 @@
                     <li><a href="#" class="user__menu-link"><i class="far fa-external-link"></i>Выход</a></li>
                 </ul>
             </div>
+            <div class="rowResizer"><span></span></div>
         </header>
         <div class="mainBody">
+    
+        <script>
+            function OnDrag(event) {
+	            if(isLeftDragging || isRightDragging) {
+	            	console.log("Dragging");
+	            	console.log(event);
+                    let page = document.getElementById("page");
+	            	let leftcol = document.getElementById("leftcol");
+	            	let rightcol = document.getElementById("rightcol");	
+                
+	            	let leftColWidth = isLeftDragging ? event.clientX : leftcol.clientWidth;
+	            	let rightColWidth = isRightDragging ? page.clientWidth - event.clientX          : rightcol.clientWidth;
+                
+	            	let dragbarWidth = 6;
+                
+	            	let cols = [
+	            		leftColWidth,
+	            		dragbarWidth,
+	            		page.clientWidth - (2*dragbarWidth) - leftColWidth - rightColWidth,
+	            		dragbarWidth,
+	            		rightColWidth
+	            	];
+                
+	            	let newColDefn = cols.map(c => c.toString() + "px").join(" ");
+                
+	            	console.log(newColDefn);
+	            	page.style.gridTemplateColumns = newColDefn;
+                
+	            	event.preventDefault()
+	            }
+            }
+        </script>

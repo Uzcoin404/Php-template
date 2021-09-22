@@ -20,19 +20,3 @@
     <span class="menu__reviews_text">Оставить озыв</span>
   </div>
 </aside>
-<script>
-  const menuIcon = document.querySelector('.menu__icon');
-  const menu = document.querySelector('.menu');
-  menu.addEventListener('mouseover', function(){
-    this.classList.add('hover');
-  });
-  menu.addEventListener('mouseout', function(){
-    this.classList.remove('hover');
-  });
-  menuIcon.addEventListener('click', function(){
-    this.classList.toggle('active');
-    if (!this.classList.contains('active')) {
-      menu.classList.remove('hover');
-    }
-  });
-</script>

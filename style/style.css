@@ -20,7 +20,7 @@ a {
     text-decoration: none;
 }
 .wrap {
-    padding: 0 20px 20px 0;
+    padding: 0 0 20px 0;
     width: 100%;
 }
 .mainBody{
@@ -33,9 +33,27 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #444c56;
     margin-bottom: 15px;
     z-index: 3;
+    position: relative;
+}
+.rowResizer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #444c56;
+    padding: 6px 0;
+    cursor: row-resize;
+}
+.rowResizer::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    background: var(--main);
+    width: 100%;
+    height: 11px;
 }
 .logo {
     color: #fff;
@@ -101,7 +119,6 @@ a {
     color: var(--main);
 }
 .menu__icon{
-    display: block;
     width: 26px;
     height: 26px;
     margin: 0 0 15px 15px;
@@ -182,7 +199,7 @@ a {
     background: var(--extra);
     min-height: max-content;
     width: 100%;
-    margin-left: 15px;
+    margin: 0 15px;
     border-radius: 15px;
     padding: 15px;
     align-self: baseline;
