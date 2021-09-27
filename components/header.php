@@ -7,8 +7,8 @@
     <title>Php</title>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="../style/all.css">
-    <link rel="stylesheet" href="../style/style.css">
-    <link rel="stylesheet" href="../style/media.css">
+    <link rel="stylesheet" href="../style/style.css?v=<?= time()?>">
+    <link rel="stylesheet" href="../style/media.css?v=<?= time()?>">
 </head>
 <body>
     <div class="wrap">
