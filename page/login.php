@@ -4,7 +4,7 @@
     <div class="head__title__blog"><h2 class="head__title">Вход в систему</h2></div>
         <p class="head__date">Сегодня 03 Март 2020 год</p>
     </section>
-    <form action="" class="form" method="post">
+    <form action="../components/user_log.php" class="form" method="post">
         <label class="form__label">
             <span class="form__text">Логин</span>
             <input type="text" class="form__input" name="login" autocomplete="off">

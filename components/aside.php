@@ -14,9 +14,9 @@
       <?}?>
     </ul>
   <div class="menu__reviews">
-    <span class="menu__reviews_span">
-        <i class="far fa-chevron-right"></i>
-    </span>
+    <a href="https://proweb.uz/" class="menu__reviews_content">
+      <i class="far fa-chevron-right"></i>
+    </a>
     <span class="menu__reviews_text">Оставить озыв</span>
   </div>
 </aside>

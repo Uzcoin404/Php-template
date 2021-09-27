@@ -14,9 +14,9 @@
     <div class="wrap">
         <header class="header">
             <a href="/" class="logo" data-aos="fade-right" data-aos-duration="1000">Php WEBSITE</a>
-            <div class="singIn">
-                <a href="./?route=login" class="singIn__link" data-aos="fade-down" data-aos-duration="1000">Вход</a>
-                <a href="./?route=registration" class="singIn__link" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="400">Регистрация</a>
+            <div class="singIn" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="400">
+                <a href="./?route=login" class="singIn__link">Вход</a>
+                <a href="./?route=registration" class="singIn__link">Регистрация</a>
             </div>
             <div class="user" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="800">
                 <div class="user__profile">
@@ -30,35 +30,3 @@
             <div class="rowResizer"><span></span></div>
         </header>
         <div class="mainBody">
-    
-        <script>
-            function OnDrag(event) {
-	            if(isLeftDragging || isRightDragging) {
-	            	console.log("Dragging");
-	            	console.log(event);
-                    let page = document.getElementById("page");
-	            	let leftcol = document.getElementById("leftcol");
-	            	let rightcol = document.getElementById("rightcol");	
-                
-	            	let leftColWidth = isLeftDragging ? event.clientX : leftcol.clientWidth;
-	            	let rightColWidth = isRightDragging ? page.clientWidth - event.clientX          : rightcol.clientWidth;
-                
-	            	let dragbarWidth = 6;
-                
-	            	let cols = [
-	            		leftColWidth,
-	            		dragbarWidth,
-	            		page.clientWidth - (2*dragbarWidth) - leftColWidth - rightColWidth,
-	            		dragbarWidth,
-	            		rightColWidth
-	            	];
-                
-	            	let newColDefn = cols.map(c => c.toString() + "px").join(" ");
-                
-	            	console.log(newColDefn);
-	            	page.style.gridTemplateColumns = newColDefn;
-                
-	            	event.preventDefault()
-	            }
-            }
-        </script>

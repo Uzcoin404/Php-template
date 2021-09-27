@@ -1,5 +1,4 @@
 <?
-// include_once('./components/user_reg.php');
 $pages = [
     'main' => [
         'name' => 'Главная',

@@ -16,6 +16,5 @@
             var_dump($driver->errorInfo());
         }
     }
-    // userReg('dfdfdfgfdg', 'dfgsdffd', '45554dsfgdf3', 'fftg');
     return $result;
 ?>

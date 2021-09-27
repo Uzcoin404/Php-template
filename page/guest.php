@@ -20,7 +20,7 @@
             <section class="comments__body">
                 <div class="comments__head">
                     <h2 class="comment__head-title">Имя пользователя</h2>
-                    <img src="/img/1.jpg" alt="" class="comments__head-img">
+                    <img src="/img/slider/1.jpg" alt="" class="comments__head-img">
                 </div>
                 <p class="comments__body-descr">Далеко-далеко за, словесными горами в стране гласных и согласных живут рыбные тексты. Ведущими всеми речью большой алфавит одна заголовок там своих решила.</p>
                 <div class="comments__footer">
@@ -34,7 +34,7 @@
             <section class="comments__body">
                 <div class="comments__head">
                     <h2 class="comment__head-title">Имя пользователя</h2>
-                    <img src="/img/1.jpg" alt="" class="comments__head-img">
+                    <img src="/img/slider/2.jpg" alt="" class="comments__head-img">
                 </div>
                 <p class="comments__body-descr">Далеко-далеко за, словесными горами в стране гласных и согласных живут рыбные тексты. Ведущими всеми речью большой алфавит одна заголовок там своих решила.</p>
                 <div class="comments__footer">
@@ -48,7 +48,7 @@
             <section class="comments__body">
                 <div class="comments__head">
                     <h2 class="comment__head-title">Имя пользователя</h2>
-                    <img src="/img/1.jpg" alt="" class="comments__head-img">
+                    <img src="/img/slider/1.jpg" alt="" class="comments__head-img">
                 </div>
                 <p class="comments__body-descr">Далеко-далеко за, словесными горами в стране гласных и согласных живут рыбные тексты. Ведущими всеми речью большой алфавит одна заголовок там своих решила.</p>
                 <div class="comments__footer">
@@ -62,7 +62,7 @@
             <section class="comments__body">
                 <div class="comments__head">
                     <h2 class="comment__head-title">Имя пользователя</h2>
-                    <img src="/img/1.jpg" alt="" class="comments__head-img">
+                    <img src="/img/slider/3.jpg" alt="" class="comments__head-img">
                 </div>
                 <p class="comments__body-descr">Далеко-далеко за, словесными горами в стране гласных и согласных живут рыбные тексты. Ведущими всеми речью большой алфавит одна заголовок там своих решила.</p>
                 <div class="comments__footer">
@@ -76,7 +76,7 @@
             <section class="comments__body">
                 <div class="comments__head">
                     <h2 class="comment__head-title">Имя пользователя</h2>
-                    <img src="/img/1.jpg" alt="" class="comments__head-img">
+                    <img src="/img/slider/2.jpg" alt="" class="comments__head-img">
                 </div>
                 <p class="comments__body-descr">Далеко-далеко за, словесными горами в стране гласных и согласных живут рыбные тексты. Ведущими всеми речью большой алфавит одна заголовок там своих решила.</p>
                 <div class="comments__footer">

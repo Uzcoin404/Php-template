@@ -29,6 +29,7 @@ a {
 }
 .header {
     width: inherit;
+    min-height: 90px;
     padding: 15px;
     display: flex;
     align-items: center;
@@ -46,6 +47,7 @@ a {
     background: #444c56;
     padding: 6px 0;
     cursor: row-resize;
+    z-index: -1;
 }
 .rowResizer::before{
     content: '';
@@ -54,6 +56,7 @@ a {
     background: var(--main);
     width: 100%;
     height: 11px;
+    z-index: -1;
 }
 .logo {
     color: #fff;
@@ -100,7 +103,7 @@ a {
     transition: .3s ease;
     transform-origin: left center;
 }
-.menu__reviews_span {
+.menu__reviews_content {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -113,10 +116,18 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: transform .3s ease;
 }
 .menu__reviews_text {
     margin-right: 20px;
     color: var(--main);
+    transition: .3s ease;
+}
+.menu__reviews.active .menu__reviews_content{
+    transform: translateX(160px);
+}
+.menu__reviews.active .menu__reviews_text{
+    opacity: 0;
 }
 .menu__icon{
     width: 26px;
@@ -377,23 +388,22 @@ textarea.form__input {
     overflow-x: scroll;
     overflow-y: scroll;
 }
-.table::-webkit-scrollbar {
+.table::-webkit-scrollbar, ::-webkit-scrollbar {
     width: 12px;
     height: 12px;
+}
+::-webkit-scrollbar-track{
+    background: var(--extra) !important;
 }
 .table::-webkit-scrollbar-track {
     background: #31334b;
 }
-.table::-webkit-scrollbar-thumb {
+.table::-webkit-scrollbar-thumb, ::-webkit-scrollbar-thumb{
     border-radius: 10px;
     background: #ffcb02;
 }
-.table::-webkit-scrollbar-thumb:hover {
+.table::-webkit-scrollbar-thumb:hover, ::-webkit-scrollbar-thumb:hover {
     background: #ffd736 ;
-}
-.tabel::-webkit-scrollbar-button{
-    display: block;
-    background: #222;
 }
 .table__row {
     display: flex;

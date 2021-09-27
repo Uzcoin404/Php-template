@@ -13,6 +13,33 @@ const menuIcon = document.querySelector('.menu__icon');
       menu.classList.remove('hover');
     }
 });
+let header = document.querySelector('.header');
+let resizer = document.querySelector('.rowResizer');
+resizer.addEventListener('mousedown', initDrag, false);
+var startY, startWidth, startHeight;
+function initDrag(e) {
+    startY = e.clientY;
+    startHeight = parseInt(document.defaultView.getComputedStyle(header).height, 10);
+    document.documentElement.addEventListener('mousemove', doDrag, false);
+    document.documentElement.addEventListener('mouseup', stopDrag, false);
+}
+function doDrag(e) {
+    header.style.height = (startHeight + e.clientY - startY) + 'px';
+}
+function stopDrag(e) {
+    document.documentElement.removeEventListener('mousemove', doDrag, false);
+    document.documentElement.removeEventListener('mouseup', stopDrag, false);
+}
+const reviews = document.querySelector('.menu__reviews');
+const reviewsDrag = document.querySelector('.menu__reviews_content');
+reviewsDrag.addEventListener('click', function(e){
+    reviews.classList.add('active');
+    e.preventDefault();
+    setTimeout(() => {
+        location.href = this.getAttribute('href');
+    }, 300);
+});
+
 class qElement {
     next(el) {
         return el.nextElementSibling
