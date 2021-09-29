@@ -15,6 +15,21 @@
         if ($driver->errorInfo()[0] != '00000') {
             var_dump($driver->errorInfo());
         }
+        return $result;
     }
-    return $result;
+    function userSign($username, $password){
+        $pdo = pdo();
+        $query = "SELECT * FROM users WHERE login = ?";
+        $driver = $pdo->prepare($query);
+        $result = $driver->execute([$username]);
+        $user = $driver->fetch(PDO::FETCH_ASSOC);
+        if ($user['login'] == $login) {
+            echo true;
+        }
+        else{
+            echo false;
+        }
+        var_dump($user);
+    }
+    userSign('zip', 123);
 ?>

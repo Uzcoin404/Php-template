@@ -1,4 +1,5 @@
 <?
+include_once('./components/db.php');
 $pages = [
     'main' => [
         'name' => 'Главная',
@@ -30,5 +31,5 @@ $pages = [
     ]
 ];
     
-$path = $_GET['route'] ?? '404';
+$path = $_GET['route']  ?? '404' ? $_GET['route']: 'main';
 ?>

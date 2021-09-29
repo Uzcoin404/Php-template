@@ -7,4 +7,5 @@
     $imgPath = "../img/avatar/$login.$ext";
     move_uploaded_file($_FILES['photo']['tmp_name'], $imgPath);
     userReg($login, $name, $pass, $imgPath);
+    header("location: /");
 ?>
