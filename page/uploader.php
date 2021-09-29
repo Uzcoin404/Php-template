@@ -4,28 +4,6 @@
         <p class="head__date">Сегодня 03 Март 2020 год</p>
     </section>
     <form action="../components/user_reg.php" class="form" method="post" enctype="multipart/form-data">
-        <div class="form__content">
-            <label class="form__label">
-                <span class="form__text">Логин</span>
-                <input type="text" class="form__input" name="login" autocomplete="off" required>
-            </label>
-            <label class="form__label">
-                <span class="form__text">Имя</span>
-                <input type="text" class="form__input" name="name" autocomplete="off" required>
-            </label>
-            <label class="form__label">
-                <span class="form__text">Пароль</span>
-                <input type="password" class="form__input" name="pass" required>
-                <button type="button" class="form__eye"><i class="far fa-eye-slash"></i></button>
-            </label>
-            <label class="form__label">
-                <span class="form__text">Повторите пароль</span>
-                <input type="password" class="form__input" name="confirmpass" required>
-                <button type="button" class="form__eye"><i class="far fa-eye-slash"></i></button>
-            </label>
-            <span class="form__error">* Пароли не совподают</span>
-            <button type="button" class="form__btn nextBtn" disabled>следующий</button>
-        </div>
         <div class="form__imgUploader">
             <div class="form__wrapper">
                 <div class="form__image">
@@ -45,10 +23,9 @@
                 <button class="form__btn doneBtn" type="submit" disabled>Done</button>
             </div>
         </div>
-    </form>
-</main>
+    </div>
+</div>
 <script>
-    const form = document.querySelector('.form');
     const formWrapper = document.querySelector('.form__wrapper');
     const customBtn = document.querySelector('.customBtn');
     const formCancel = document.querySelector('.formUploader__cancel');
@@ -57,7 +34,6 @@
     const formImgName = document.querySelector('.formUploader__fileName p');
     const doneBtn = document.querySelector('.doneBtn');
     const skipBtn = document.querySelector('.skipBtn');
-    const nextBtn = document.querySelector('.nextBtn');
     let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
     customBtn.addEventListener('click', function(){
         imgUploader.click();
@@ -89,5 +65,4 @@
             formImgName.innerHTML = valueStore;
         }
     });
-
 </script>

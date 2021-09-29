@@ -321,6 +321,9 @@ a {
     margin-top: 15px;
 }
 
+.form{
+    width: 100%;
+}
 .form__label {
     display: flex;
     flex-direction: column;
@@ -356,7 +359,7 @@ textarea.form__input {
     transition: 0.2s;
     cursor: text;
 }
-.form__btn {
+.form__btn, .customBtn{
     background: #fff;
     padding: 10px 20px;
     text-transform: uppercase;
@@ -365,7 +368,7 @@ textarea.form__input {
     border-radius: 10px;
     cursor: pointer;
     outline: none;
-    transition: background 0.5s;
+    transition: 0.3s;
 }
 .form__btn:hover {
     background: #14a4ad;
@@ -380,6 +383,103 @@ textarea.form__input {
     color: #000;
     cursor: default;
 }
+.form__imgUploader{
+    width: 300px;
+    text-align: center;
+    padding-top: 30px;
+}
+.form__wrapper{
+    position: relative;
+    height: 300px;
+    width: 100%;
+    border: 2px dashed #8a8888;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+.form__image{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.form__image, .form__img{
+    width: 101%;
+    height: 101%;
+    object-fit: cover;
+}
+.formUploader__icon{
+    font-size: 72px;
+    padding-bottom: 15px;
+}
+.formUploader__text{
+    font-size: 18px;
+    font-weight: 500;
+}
+.formUploader__cancel, .formUploader__icon{
+    background: linear-gradient(135deg, #fdd269, #f24d77, #9f3dc8);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+.formUploader__cancel{
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: all .3s ease;
+}
+.formUploader__fileName{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 8px 0 15px;
+    background: linear-gradient(135deg, #fdd269, #f24d77, #9f3dc8);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    transform: translateY(+100%);
+    opacity: 0;
+    transition: all .3s ease;
+}
+.form__wrapper.active:hover .formUploader__cancel, .form__wrapper.active:hover .formUploader__fileName{
+    transform: translateY(0);
+    opacity: 1;
+}
+.form__wrapper:hover{
+    border-color: #f24d77;
+}
+.form__wrapper.active{
+    border: none;
+}
+.formUploader__fileName p{
+    width: 60%;
+    margin: 0 auto;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    display: -webkit-box;
+}
+.customBtn{
+    margin: 15px 0;
+    background: linear-gradient(135deg, #fdd269, #f24d77, #9f3dc8);
+    color: #fff;
+}
+.form__buttons{
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+
 .table {
     max-width: 1000px;
     height: 50vh;
