@@ -1,4 +1,5 @@
 <?
+    ob_start();
     include_once('./db.php');
     $login = $_POST['login'];
     $name = $_POST['name'];
@@ -7,5 +8,6 @@
     $imgPath = "../img/avatar/$login.$ext";
     move_uploaded_file($_FILES['photo']['tmp_name'], $imgPath);
     userReg($login, $name, $pass, $imgPath);
-    header("location: /");
+    header("location: ../?route=login");
+    ob_end_flush();
 ?>

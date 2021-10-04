@@ -109,22 +109,22 @@ class INPUT {
             parent.querySelector('input').setAttribute('type', 'password')
         }
     }
-    confirm(el, arr) {
-        arr.forEach(key => {
-            if(key != el) {
-                if(key.value === el.value && key.value.length > 5 && el.value.length > 5) {
-                    key.closest('form').querySelector('.form__btn').disabled = false
-                    key.closest('form').querySelector('.form__error').style.display = 'none'
-                }else {
-                    if(key.value.length != 0 && el.value.length != 0) {
-                        key.closest('form').querySelector('.form__error').style.display = 'block'
-                    }
-                    key.closest('form').querySelector('.form__btn').disabled = true
+    // confirm(el, arr) {
+    //     arr.forEach(key => {
+    //         if(key != el) {
+    //             if(key.value === el.value && key.value.length > 5 && el.value.length > 5) {
+    //                 key.closest('form').querySelector('.form__btn').disabled = false
+    //                 key.closest('form').querySelector('.form__error').style.display = 'none'
+    //             }else {
+    //                 if(key.value.length != 0 && el.value.length != 0) {
+    //                     key.closest('form').querySelector('.form__error').style.display = 'block'
+    //                 }
+    //                 key.closest('form').querySelector('.form__btn').disabled = true
 
-                }
-            }
-        })
-    }
+    //             }
+    //         }
+    //     })
+    // }
 }
 const input = new INPUT({
     el: '.form__input'

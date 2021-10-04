@@ -1,7 +1,7 @@
 <main class="main" data-aos="zoom-in-up" data-aos-duration="1000" data-aos-delay="200">
     <section class="head">
         <div class="head__title__blog"><h2 class="head__title">Регистрация в системе</h2></div>
-        <p class="head__date">Сегодня 03 Март 2020 год</p>
+        <p class="head__date">Сегодня <?= date("d-m-Y");?> год</p>
     </section>
     <form action="../components/user_reg.php" class="form" method="post" enctype="multipart/form-data">
         <div class="form__content">
@@ -24,7 +24,7 @@
                 <button type="button" class="form__eye"><i class="far fa-eye-slash"></i></button>
             </label>
             <span class="form__error">* Пароли не совподают</span>
-            <button type="button" class="form__btn nextBtn" disabled>следующий</button>
+            <button type="button" class="form__btn nextBtn">следующий</button>
         </div>
         <div class="form__imgUploader">
             <div class="form__wrapper">

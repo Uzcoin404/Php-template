@@ -23,7 +23,7 @@
         $driver = $pdo->prepare($query);
         $result = $driver->execute([$username]);
         $user = $driver->fetch(PDO::FETCH_ASSOC);
-        if ($user['login'] == $login) {
+        if ($user['login'] == $username) {
             echo true;
         }
         else{
@@ -31,5 +31,5 @@
         }
         var_dump($user);
     }
-    userSign('zip', 123);
+    userSign(' ', 1234);
 ?>
