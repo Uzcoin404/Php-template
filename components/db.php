@@ -19,11 +19,15 @@
     }
     function userSign($username, $password){
         $pdo = pdo();
-        $query = "SELECT * FROM users WHERE login = ?";
+        $query = "SELECT * FROM users WHERE username = ?";
         $driver = $pdo->prepare($query);
         $result = $driver->execute([$username]);
         $user = $driver->fetch(PDO::FETCH_ASSOC);
-        if ($user['login'] == $username) {
+        if ($user['username'] == $username && password_verify($password, $user['password'])) {
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['name'] = $user['name'];
+            $_SESSION['photo'] = $user['photo'];
+            var_dump($_SESSION);
             echo true;
         }
         else{
@@ -31,5 +35,5 @@
         }
         var_dump($user);
     }
-    userSign(' ', 1234);
+    userSign('fgdfg', 123456);
 ?>

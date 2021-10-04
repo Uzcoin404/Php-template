@@ -1,4 +1,5 @@
 <?
+session_start();
 include_once('./components/db.php');
 $pages = [
     'main' => [
