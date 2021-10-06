@@ -27,13 +27,10 @@
             $_SESSION['username'] = $user['username'];
             $_SESSION['name'] = $user['name'];
             $_SESSION['photo'] = $user['photo'];
-            var_dump($_SESSION);
-            echo true;
+            return true;
         }
         else{
-            echo false;
+            return false;
         }
-        var_dump($user);
     }
-    userSign('fgdfg', 123456);
 ?>

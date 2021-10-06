@@ -14,19 +14,22 @@
     <div class="wrap">
         <header class="header">
             <a href="/" class="logo" data-aos="fade-right" data-aos-duration="1000">Php WEBSITE</a>
+            <?if (!$_SESSION['username']):?>
             <div class="singIn" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="400">
                 <a href="./?route=login" class="singIn__link">Вход</a>
                 <a href="./?route=registration" class="singIn__link">Регистрация</a>
             </div>
+            <?elseif ($_SESSION['username']):?>
             <div class="user" data-aos="fade-down" data-aos-duration="1000" data-aos-delay="800">
                 <div class="user__profile">
-                    <img src="/img/avatar/fddgdf.jpg" alt="" class="user__profile-img">
-                    <h4 class="user__profile-name">Имя</h4>
+                    <img src="<?= $_SESSION['photo']?>" alt="" class="user__profile-img">
+                    <h4 class="user__profile-name"><?= $_SESSION['username']?></h4>
                 </div>
                 <ul class="user__menu">
-                    <li><a href="#" class="user__menu-link"><i class="far fa-external-link"></i>Выход</a></li>
+                    <li><a href="../components/user_sign.php" class="user__menu-link"><i class="far fa-external-link"></i>Выход</a></li>
                 </ul>
             </div>
+            <?endif;?>  
             <div class="rowResizer"><span></span></div>
         </header>
         <div class="mainBody">
