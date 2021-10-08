@@ -26,7 +26,7 @@
                     <h4 class="user__profile-name"><?= $_SESSION['username']?></h4>
                 </div>
                 <ul class="user__menu">
-                    <li><a href="../components/user_sign.php" class="user__menu-link"><i class="far fa-external-link"></i>Выход</a></li>
+                    <li><a href="../components/exit.php" class="user__menu-link"><i class="far fa-external-link"></i>Выход</a></li>
                 </ul>
             </div>
             <?endif;?>  
