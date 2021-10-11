@@ -3,6 +3,7 @@
         <div class="head__title__blog"><h2 class="head__title">Гостевая книга</h2></div>
         <p class="head__date">Сегодня <?= date("d-m-Y");?> год</p>
     </section>
+    <?if ($_SESSION['username']):?>
     <form action="" class="form" method="get">
         <label class="form__label">
             <span class="form__text">Введите имя</span>
@@ -14,6 +15,7 @@
         </label>
         <button class="form__btn">Отправить</button>
     </form>
+    <?endif;?>
     <div class="comments">
         <div class="comments__item">
             <p class="comments__item-time">12:30</p>
@@ -23,10 +25,12 @@
                     <img src="/img/slider/1.jpg" alt="" class="comments__head-img">
                 </div>
                 <p class="comments__body-descr">Далеко-далеко за, словесными горами в стране гласных и согласных живут рыбные тексты. Ведущими всеми речью большой алфавит одна заголовок там своих решила.</p>
+                <?if ($_SESSION['username']):?>
                 <div class="comments__footer">
                     <a href="#" id="editComment" class="comments__footer-link"><i class="fal fa-edit"></i></a>
                     <a href="#" id="deleteComment" class="comments__footer-link"><i class="fal fa-trash"></i></a>
                 </div>
+                <?endif;?>
             </section>
         </div>
         <div class="comments__item">
@@ -37,10 +41,12 @@
                     <img src="/img/slider/2.jpg" alt="" class="comments__head-img">
                 </div>
                 <p class="comments__body-descr">Далеко-далеко за, словесными горами в стране гласных и согласных живут рыбные тексты. Ведущими всеми речью большой алфавит одна заголовок там своих решила.</p>
+                <?if ($_SESSION['username']):?>
                 <div class="comments__footer">
                     <a href="#" class="comments__footer-link"><i class="fal fa-edit"></i></a>
                     <a href="#" class="comments__footer-link"><i class="fal fa-trash"></i></a>
                 </div>
+                <?endif;?>
             </section>
         </div>
         <div class="comments__item">
@@ -51,10 +57,12 @@
                     <img src="/img/slider/1.jpg" alt="" class="comments__head-img">
                 </div>
                 <p class="comments__body-descr">Далеко-далеко за, словесными горами в стране гласных и согласных живут рыбные тексты. Ведущими всеми речью большой алфавит одна заголовок там своих решила.</p>
+                <?if ($_SESSION['username']):?>
                 <div class="comments__footer">
                     <a href="#" class="comments__footer-link"><i class="fal fa-edit"></i></a>
                     <a href="#" class="comments__footer-link"><i class="fal fa-trash"></i></a>
                 </div>
+                <?endif;?>
             </section>
         </div>
         <div class="comments__item">
@@ -65,10 +73,12 @@
                     <img src="/img/slider/3.jpg" alt="" class="comments__head-img">
                 </div>
                 <p class="comments__body-descr">Далеко-далеко за, словесными горами в стране гласных и согласных живут рыбные тексты. Ведущими всеми речью большой алфавит одна заголовок там своих решила.</p>
+                <?if ($_SESSION['username']):?>
                 <div class="comments__footer">
                     <a href="#" class="comments__footer-link"><i class="fal fa-edit"></i></a>
                     <a href="#" class="comments__footer-link"><i class="fal fa-trash"></i></a>
                 </div>
+                <?endif;?>
             </section>
         </div>
         <div class="comments__item">
@@ -79,10 +89,12 @@
                     <img src="/img/slider/2.jpg" alt="" class="comments__head-img">
                 </div>
                 <p class="comments__body-descr">Далеко-далеко за, словесными горами в стране гласных и согласных живут рыбные тексты. Ведущими всеми речью большой алфавит одна заголовок там своих решила.</p>
+                <?if ($_SESSION['username']):?>
                 <div class="comments__footer">
                     <a href="#" class="comments__footer-link"><i class="fal fa-edit"></i></a>
                     <a href="#" class="comments__footer-link"><i class="fal fa-trash"></i></a>
                 </div>
+                <?endif;?>
             </section>
         </div>
     </div>

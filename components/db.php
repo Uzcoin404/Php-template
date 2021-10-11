@@ -33,4 +33,12 @@
             return false;
         }
     }
+    function getComment(){
+        $pdo = pdo();
+        $query = "SELECT * FROM comments";
+        $driver = $pdo->prepare($query);
+        $result = $driver->execute();
+        $comments = $driver->fetchAll(PDO::FETCH_ASSOC);
+        return $comments;
+    }
 ?>
