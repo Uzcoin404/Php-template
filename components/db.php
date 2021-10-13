@@ -33,12 +33,23 @@
             return false;
         }
     }
-    function getComment(){
+    function getComments(){
         $pdo = pdo();
         $query = "SELECT * FROM comments";
         $driver = $pdo->prepare($query);
         $result = $driver->execute();
         $comments = $driver->fetchAll(PDO::FETCH_ASSOC);
         return $comments;
+    }
+    function setComments($username, $photo, $comments){
+        var_dump($_SESSION);
+        $pdo = pdo();
+        $query = "INSERT INTO comments (username, photo, comments) VALUES (?,?,?)";
+        $driver = $pdo->prepare($query);
+        $result = $driver->execute([$username, $photo, $comments]);
+        if ($driver->errorInfo()[0] != '00000') {
+            var_dump($driver->errorInfo());
+        }
+        return $result;
     }
 ?>
