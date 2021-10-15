@@ -3,6 +3,11 @@
     padding: 0;
     box-sizing: border-box;
 }
+.container{
+    max-width: 1560px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
 :root {
     --main: #191927;
     --extra: #222330;
@@ -694,7 +699,7 @@ textarea.form__input {
 .comments__item {
     display: flex;
     padding: 10px;
-    justify-content: space-around;
+    justify-content: space-between;
     margin-bottom: 15px;
 }
 .comments__body {
@@ -750,6 +755,7 @@ textarea.form__input {
     color: #fff;
     margin-top: 20px;
     font-size: 20px;
+    line-height: 24px;
 }
 .user {
     max-width: 300px;

@@ -18,17 +18,17 @@
     ?>
     <?foreach ($comments as $key => $comment):?>
     <div class="comments__item">
-            <p class="comments__item-time">12:30</p>
+            <p class="comments__item-time"><?=  $comment['time']?></p>
             <section class="comments__body">
                 <div class="comments__head">
                     <h2 class="comment__head-title"><?= $comment['username']?></h2>
-                    <img src="<?= $_SESSION['photo']?>" alt="" class="comments__head-img" name="photo">
+                    <img src="<?= $comment['photo']?>" alt="" class="comments__head-img" name="photo">
                 </div>
                 <p class="comments__body-descr"><?= $comment['comments']?></p>
-                <?if ($_SESSION['username']):?>
+                <?if ($_SESSION['username'] == $comment['username']):?>
                 <div class="comments__footer">
                     <a href="#" id="editComment" class="comments__footer-link"><i class="fal fa-edit"></i></a>
-                    <a href="#" id="deleteComment" class="comments__footer-link"><i class="fal fa-trash"></i></a>
+                    <a href="../components/comment_delete.php" id="deleteComment" class="comments__footer-link"><i class="fal fa-trash"></i></a>
                 </div>
                 <?endif;?>
             </section>

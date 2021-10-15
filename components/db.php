@@ -1,4 +1,5 @@
 <?
+    date_default_timezone_set('Asia/Tashkent');
     function pdo(){
         $dbName = 'db_1';
         $dbUser = 'root';
@@ -6,12 +7,12 @@
         $host = 'localhost';
         return new PDO("mysql:host=$host; dbname=$dbName;", $dbUser, $dbPass);
     }
-    function userReg($username, $name, $password, $photo){
+    function userReg($username, $name, $password, $photo, $time){
         $password = password_hash($password , PASSWORD_DEFAULT);
         $pdo = pdo();
-        $query = "INSERT INTO users (username, name, password, photo) VALUES (?,?,?,?)";
+        $query = "INSERT INTO users (username, name, password, photo, time) VALUES (?,?,?,?,?)";
         $driver = $pdo->prepare($query);
-        $result = $driver->execute([$username, $name, $password, $photo]);
+        $result = $driver->execute([$username, $name, $password, $photo, $time]);
         if ($driver->errorInfo()[0] != '00000') {
             var_dump($driver->errorInfo());
         }
@@ -41,12 +42,12 @@
         $comments = $driver->fetchAll(PDO::FETCH_ASSOC);
         return $comments;
     }
-    function setComments($username, $photo, $comments){
+    function setComments($username, $photo, $comments, $time){
         var_dump($_SESSION);
         $pdo = pdo();
-        $query = "INSERT INTO comments (username, photo, comments) VALUES (?,?,?)";
+        $query = "INSERT INTO comments (username, photo, comments, time) VALUES (?,?,?,?)";
         $driver = $pdo->prepare($query);
-        $result = $driver->execute([$username, $photo, $comments]);
+        $result = $driver->execute([$username, $photo, $comments, $time]);
         if ($driver->errorInfo()[0] != '00000') {
             var_dump($driver->errorInfo());
         }
