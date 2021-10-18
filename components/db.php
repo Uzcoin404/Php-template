@@ -53,4 +53,15 @@
         }
         return $result;
     }
-?>
+    function getId($id){
+        $pdo = pdo();
+        $query = "SELECT comment FROM comments WHERE id = ?";
+        $driver = $pdo->prepare($query);
+        $result = $driver->execute([$id]);
+        $comments = $driver->fetchAll(PDO::FETCH_ASSOC);
+        if ($driver->errorInfo()[0] != '00000') {
+            var_dump($driver->errorInfo());
+        }
+        return $comments;
+    }
+    ?>

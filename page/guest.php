@@ -3,35 +3,43 @@
         <div class="head__title__blog"><h2 class="head__title">Гостевая книга</h2></div>
         <p class="head__date">Сегодня <?= date("d-m-Y");?> год</p>
     </section>
+    <?
+        include_once('./components/db.php');
+        $comments = getComments();
+        $descr = getId($_GET['id'])['comments'];
+        var_dump($descr);
+    ?>
     <?if ($_SESSION['username']):?>
     <form action="../components/write_comments.php" class="form" method="POST">
         <label class="form__label">
+            <?if(!$_GET['id']):?>
             <span class="form__text">Оставте отзыв</span>
-            <textarea class="form__input" name="comments"></textarea>
+            <?endif;?>
+            <textarea class="form__input" name="comments" value="<??>"></textarea>
         </label>
-        <button class="form__btn">Отправить</button>
+        <button class="form__btn"><?= !$_GET['id'] ? 'Отправить' : 'Изменить'?></button>
     </form>
     <?endif;?>
-    <?
-    include_once('./components/db.php');
-    $comments = getComments();
-    ?>
-    <?foreach ($comments as $key => $comment):?>
-    <div class="comments__item">
-            <p class="comments__item-time"><?=  $comment['time']?></p>
-            <section class="comments__body">
-                <div class="comments__head">
-                    <h2 class="comment__head-title"><?= $comment['username']?></h2>
-                    <img src="<?= $comment['photo']?>" alt="" class="comments__head-img" name="photo">
-                </div>
-                <p class="comments__body-descr"><?= $comment['comments']?></p>
-                <?if ($_SESSION['username'] == $comment['username']):?>
-                <div class="comments__footer">
-                    <a href="#" id="editComment" class="comments__footer-link"><i class="fal fa-edit"></i></a>
-                    <a href="../components/comment_delete.php" id="deleteComment" class="comments__footer-link"><i class="fal fa-trash"></i></a>
-                </div>
-                <?endif;?>
-            </section>
+    <? if(!$_GET['id']):?>
+    <div class="comments">
+        <?foreach ($comments as $key => $comment):?>
+        <div class="comments__item">
+                <p class="comments__item-time"><?=  $comment['time']?></p>
+                <section class="comments__body">
+                    <div class="comments__head">
+                        <h2 class="comment__head-title"><?= $comment['username']?></h2>
+                        <img src="<?= $comment['photo']?>" alt=""   class="comments__head-img" name="photo">
+                    </div>
+                    <p class="comments__body-descr"><?= $comment['comments']?></p>
+                    <?if ($_SESSION['username'] == $comment['username']):?>
+                    <div class="comments__footer">
+                        <a href="./?route=guest&id=<?= $comment['id'];?>" id="editComment" class="comments__footer-link"><i class="fal fa-edit"></i></a>
+                        <a href="route=guest" id="deleteComment"    class="comments__footer-link"><i class="fal fa-trash"></i></a>
+                    </div>
+                    <?endif;?>
+                </section>
+        </div>
+        <?endforeach;?>
     </div>
-    <?endforeach;?>
+    <?endif;?>
 </main>
