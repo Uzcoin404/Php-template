@@ -7,17 +7,19 @@
         include_once('./components/db.php');
         $comments = getComments();
         $descr = getId($_GET['id'])['comments'];
-        var_dump($descr);
     ?>
     <?if ($_SESSION['username']):?>
-    <form action="../components/write_comments.php" class="form" method="POST">
+    <form action="<?= !$_GET['id'] ? '../components/write_comments.php' : '../components/edit_comment.php'?>" class="form" method="POST">
         <label class="form__label">
             <?if(!$_GET['id']):?>
             <span class="form__text">Оставте отзыв</span>
             <?endif;?>
-            <textarea class="form__input" name="comments" value="<??>"></textarea>
+            <textarea class="form__input" name="comments" value="<?$_GET['id']?>"></textarea>
         </label>
-        <button class="form__btn"><?= !$_GET['id'] ? 'Отправить' : 'Изменить'?></button>
+        <button class="form__btn" type="submit"><?= !$_GET['id'] ? 'Отправить' : 'Изменить'?></button>
+        <? if($_GET['id']):?>
+        <button class="form__btn">Назад</button>
+        <?endif?>
     </form>
     <?endif;?>
     <? if(!$_GET['id']):?>

@@ -64,4 +64,14 @@
         }
         return $comments;
     }
-    ?>
+    function editComment($id, $comment){
+        $pdo = pdo();
+        $query = "UPDATE comments SET comments = $comment WHERE id = ?";
+        $driver = $pdo->prepare($query);
+        $result = $driver->execute([$id]);
+        if ($driver->errorInfo()[0] != '00000') {
+            var_dump($driver->errorInfo());
+        }
+        return $result;
+    }
+?>
