@@ -55,18 +55,18 @@
     }
     function getId($id){
         $pdo = pdo();
-        $query = "SELECT comment FROM comments WHERE id = ?";
+        $query = "SELECT comments FROM comments WHERE id=(?)";
         $driver = $pdo->prepare($query);
         $result = $driver->execute([$id]);
-        $comments = $driver->fetchAll(PDO::FETCH_ASSOC);
+        $comments = $driver->fetch(PDO::FETCH_ASSOC);
         if ($driver->errorInfo()[0] != '00000') {
             var_dump($driver->errorInfo());
         }
         return $comments;
     }
-    function editComment($id, $comment){
+    function editComment($id, $descri){
         $pdo = pdo();
-        $query = "UPDATE comments SET comments = $comment WHERE id = ?";
+        $query = "UPDATE comments SET comments = '$descri' WHERE id = (?)";
         $driver = $pdo->prepare($query);
         $result = $driver->execute([$id]);
         if ($driver->errorInfo()[0] != '00000') {
