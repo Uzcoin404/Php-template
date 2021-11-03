@@ -7,14 +7,11 @@
         include_once('./components/db.php');
         $comments = getComments();
         $descr = getId($_GET['id'])['comments'];
-        var_dump($descr);
     ?>
     <?if ($_SESSION['username']):?>
-    <form action="<?= !$_GET['id'] ? '../components/write_comments.php' : '../components/edit_comment.php'?>" class="form" method="GET">
+    <form action="<?= !$_GET['id'] ? '../components/write_comments.php' : '../components/edit_comment.php'?>" class="form" method="POST">
         <label class="form_label">
-            <input hidden type="text" name='id' value="<?= $_GET['id'];
-            var_dump($_GET['id']);
-            ?>">
+            <input hidden type="text" name='id' value="<?= $_GET['id']?>">
         </label>
         <label class="form__label">
             <?if(!$_GET['id']):?>
@@ -24,7 +21,7 @@
         </label>
         <button class="form__btn" type="submit"><?= !$_GET['id'] ? 'Отправить' : 'Изменить'?></button>
         <? if($_GET['id']):?>
-        <button class="form__btn">Назад</button>
+        <button class="form__btn"><a href="../?route=guest">Назад</a></button>
         <?endif?>
     </form>
     <?endif;?>

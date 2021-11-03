@@ -64,9 +64,9 @@
         }
         return $comments;
     }
-    function editComment($id, $descri){
+    function editComment($id, $descr){
         $pdo = pdo();
-        $query = "UPDATE comments SET comments = '$descri' WHERE id = (?)";
+        $query = "UPDATE comments SET comments = '$descr' WHERE id = (?)";
         $driver = $pdo->prepare($query);
         $result = $driver->execute([$id]);
         if ($driver->errorInfo()[0] != '00000') {

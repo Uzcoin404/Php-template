@@ -1,7 +1,7 @@
 <?
+    ob_start();
     include_once('./db.php');
-
-    editComment(24,'jhjghjjhg');
-    var_dump($_POST);
-    // header("Location: /?route=guest");
+    editComment($_POST['id'], $_POST['comments']);
+    header("Location: ../?route=guest");
+    ob_end_flush();
 ?>
