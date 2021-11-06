@@ -1,5 +1,10 @@
 <?
 session_start();
+if (isset($_SESSION['start']) && (time() - $_SESSION['start'] > 259200)) {
+    session_unset(); 
+    session_destroy(); 
+}
+$_SESSION['start'] = time();
 $pages = [
     'main' => [
         'name' => 'Главная',

@@ -8,15 +8,18 @@
         $comments = getComments();
         $descr = getId($_GET['id'])['comments'];
     ?>
+    <?if($_GET['dl']):?>
+    <a href="./?route=guest" class="reloader" style="display: none;"></a>
+    <?deleteComment($_GET['dl'])?>
+    <?endif;?>
     <?if ($_SESSION['username']):?>
     <form action="<?= !$_GET['id'] ? '../components/write_comments.php' : '../components/edit_comment.php'?>" class="form" method="POST">
         <label class="form_label">
             <input hidden type="text" name='id' value="<?= $_GET['id']?>">
+            <input hidden type="text" name='description' class="description" value="<?= $descr?>">
         </label>
         <label class="form__label">
-            <?if(!$_GET['id']):?>
-            <span class="form__text">Оставте отзыв</span>
-            <?endif;?>
+            <span class="<?= $_GET['id'] ? 'form__text_hidden' : 'form__text'?>">Оставте отзыв</span>
             <textarea class="form__input" name="comments" value="<?= $descr?>"></textarea>
         </label>
         <button class="form__btn" type="submit"><?= !$_GET['id'] ? 'Отправить' : 'Изменить'?></button>
@@ -38,8 +41,8 @@
                     <p class="comments__body-descr"><?= $comment['comments']?></p>
                     <?if ($_SESSION['username'] == $comment['username']):?>
                     <div class="comments__footer">
-                        <a href="./?route=guest&id=<?= $comment['id'];?>" id="editComment" class="comments__footer-link"><i class="fal fa-edit"></i></a>
-                        <a href="route=guest" id="deleteComment"    class="comments__footer-link"><i class="fal fa-trash"></i></a>
+                        <a href="./?route=guest&id=<?= $comment['id']?>" id="editComment" class="comments__footer-link"><i class="fal fa-edit"></i></a>
+                        <a href="./?route=guest&dl=<?= $comment['id']?>" id="deleteComment" class="comments__footer-link"><i class="fal fa-trash"></i></a>
                     </div>
                     <?endif;?>
                 </section>
@@ -48,3 +51,4 @@
     </div>
     <?endif;?>
 </main>
+<script src="../js/guest.js"></script>

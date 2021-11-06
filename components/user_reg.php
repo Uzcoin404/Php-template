@@ -8,10 +8,15 @@
     if ($ext) {
         $imgPath = "../img/avatar/$login.$ext";
     } else{
-        $imgPath = "../img/avatar/qwe.png";
+        $imgPath = "../img/avatar/noneAvatar.svg";
     }
     move_uploaded_file($_FILES['photo']['tmp_name'], $imgPath);
-    userReg($login, $name, $pass, $imgPath, date('m-d-Y H:i:s', time()));
-    header("location: ../?route=login");
+    $users = checkUsername($login);
+    if (!$users) {
+        header("location: ../?route=registration&invalid=true");
+    } else {
+        userReg($login, $name, $pass, $imgPath, date('Y-m-d H:i:s', time()));
+        header("location: ../?route=login");
+    }
     ob_end_flush();
 ?>

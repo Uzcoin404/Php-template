@@ -364,6 +364,33 @@ textarea.form__input {
     transition: 0.2s;
     cursor: text;
 }
+.form__text_hidden{
+    display: none;
+}
+.invalid_indi{
+    position: fixed;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    color: #ff1e00;
+    font-size: 24px;
+    font-weight: 500;
+    text-align: center;
+    padding: 15px 25px;
+    background: #fff;
+    border-radius: 10px;
+    z-index: 99;
+    animation: indi_hide 12s linear infinite;
+}
+@keyframes indi_hide {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
 .form__btn, .customBtn{
     background: #fff;
     padding: 10px 20px;
@@ -374,6 +401,9 @@ textarea.form__input {
     cursor: pointer;
     outline: none;
     transition: 0.3s;
+}
+.form__btn a{
+    color: #000;
 }
 .form__btn:hover {
     background: #14a4ad;
@@ -392,6 +422,10 @@ textarea.form__input {
     width: 300px;
     text-align: center;
     padding-top: 30px;
+    display: none;
+}
+.form__content.active .form__imgUploader{
+    display: block;
 }
 .form__wrapper{
     position: relative;
@@ -465,6 +499,9 @@ textarea.form__input {
 }
 .form__wrapper.active{
     border: none;
+}
+.form__wrapper.active .formUploader__content{
+    display: none;
 }
 .formUploader__fileName p{
     width: 60%;
@@ -754,7 +791,7 @@ textarea.form__input {
 .comments__item-time {
     color: #fff;
     margin-top: 20px;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 24px;
 }
 .user {

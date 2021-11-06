@@ -1,44 +1,52 @@
 AOS.init();
-const menuIcon = document.querySelector('.menu__icon');
-const menu = document.querySelector('.menu');
-menu.addEventListener('mouseover', function(){
-  this.classList.add('hover');
-});
-menu.addEventListener('mouseout', function(){
-  this.classList.remove('hover');
-});
-menuIcon.addEventListener('click', function(){
-  this.classList.toggle('active');
-  if (!this.classList.contains('active')) {
-    menu.classList.remove('hover');
-  }
-});
-let header = document.querySelector('.header');
-let resizer = document.querySelector('.rowResizer');
-resizer.addEventListener('mousedown', initDrag, false);
-var startY, startWidth, startHeight;
-function initDrag(e) {
-    startY = e.clientY;
-    startHeight = parseInt(document.defaultView.getComputedStyle(header).height, 10);
-    document.documentElement.addEventListener('mousemove', doDrag, false);
-    document.documentElement.addEventListener('mouseup', stopDrag, false);
+class resizerAndReview {
+    constructor(){
+        const menuIcon = document.querySelector('.menu__icon');
+        const menu = document.querySelector('.menu');
+        document.addEventListener('scroll', function(e){
+            menu.style.paddingTop = scrollY + 100 + 'px';
+        });
+        menu.addEventListener('mouseover', function(){
+        this.classList.add('hover');
+        });
+        menu.addEventListener('mouseout', function(){
+        this.classList.remove('hover');
+        });
+        menuIcon.addEventListener('click', function(){
+        this.classList.toggle('active');
+        if (!this.classList.contains('active')) {
+            menu.classList.remove('hover');
+        }
+        });
+        let header = document.querySelector('.header');
+        let resizer = document.querySelector('.rowResizer');
+        resizer.addEventListener('mousedown', initDrag, false);
+        var startY, startWidth, startHeight;
+        function initDrag(e) {
+            startY = e.clientY;
+            startHeight = parseInt(document.defaultView.getComputedStyle(header).height, 10);
+            document.documentElement.addEventListener('mousemove', doDrag, false);
+            document.documentElement.addEventListener('mouseup', stopDrag, false);
+        }
+        function doDrag(e) {
+            header.style.height = (startHeight + e.clientY - startY) + 'px';
+        }
+        function stopDrag(e) {
+            document.documentElement.removeEventListener('mousemove', doDrag, false);
+            document.documentElement.removeEventListener('mouseup', stopDrag, false);
+        }
+        const reviews = document.querySelector('.menu__reviews');
+        const reviewsDrag = document.querySelector('.menu__reviews_content');
+        reviewsDrag.addEventListener('click', function(e){
+            reviews.classList.add('active');
+            e.preventDefault();
+            setTimeout(() => {
+                location.href = this.getAttribute('href');
+            }, 300);
+        });
+    }
 }
-function doDrag(e) {
-    header.style.height = (startHeight + e.clientY - startY) + 'px';
-}
-function stopDrag(e) {
-    document.documentElement.removeEventListener('mousemove', doDrag, false);
-    document.documentElement.removeEventListener('mouseup', stopDrag, false);
-}
-const reviews = document.querySelector('.menu__reviews');
-const reviewsDrag = document.querySelector('.menu__reviews_content');
-reviewsDrag.addEventListener('click', function(e){
-    reviews.classList.add('active');
-    e.preventDefault();
-    setTimeout(() => {
-        location.href = this.getAttribute('href');
-    }, 300);
-});
+const resizerandreview = new resizerAndReview();
 
 class qElement {
     next(el) {
@@ -55,11 +63,12 @@ class qElement {
     }
 }
 const element = new qElement()
+
 class INPUT {
     constructor(options) {
         this.el = [...document.querySelectorAll(options.el)]
         this.confirmPass = this.el.filter(a => a.getAttribute('name') == 'confirmpass' || a.getAttribute('name') == 'pass')
-        this.prevEl = []
+        this.prevEl = [] 
         for (let i = 0; i < this.el.length; i++) {
             this.prevEl.push(element.prev(this.el[i]))
             this.el[i].addEventListener('focus', () => this.inputFocus(i))
@@ -113,13 +122,13 @@ class INPUT {
         arr.forEach(key => {
             if(key != el) {
                 if(key.value === el.value && key.value.length > 5 && el.value.length > 5) {
-                    key.closest('form').querySelector('.form__btn').disabled = false
-                    key.closest('form').querySelector('.form__error').style.display = 'none'
+                    key.closest('form').querySelector('.nextBtn').disabled = false;
+                    key.closest('form').querySelector('.form__error').style.display = 'none';
                 }else {
                     if(key.value.length != 0 && el.value.length != 0) {
-                        key.closest('form').querySelector('.form__error').style.display = 'block'
+                        key.closest('form').querySelector('.form__error').style.display = 'block';
                     }
-                    key.closest('form').querySelector('.form__btn').disabled = true
+                    key.closest('form').querySelector('.nextBtn').disabled = true;
 
                 }
             }
@@ -201,7 +210,6 @@ class SELECT {
 const select = new SELECT({
     el: '.form__select'
 })
-
 
 class SLIDER {
     constructor(options) {

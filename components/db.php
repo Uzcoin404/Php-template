@@ -34,6 +34,18 @@
             return false;
         }
     }
+    function checkUsername($username){
+        $pdo = pdo();
+        $query = "SELECT username FROM users WHERE username = '$username'";
+        $driver = $pdo->prepare($query);
+        $result = $driver->execute();
+        $user = $driver->fetch(PDO::FETCH_ASSOC);
+        if (isset($user) && !empty($user)){
+            return false;
+        } else {
+            return true;
+        }
+    }
     function getComments(){
         $pdo = pdo();
         $query = "SELECT * FROM comments";
@@ -67,6 +79,16 @@
     function editComment($id, $descr){
         $pdo = pdo();
         $query = "UPDATE comments SET comments = '$descr' WHERE id = (?)";
+        $driver = $pdo->prepare($query);
+        $result = $driver->execute([$id]);
+        if ($driver->errorInfo()[0] != '00000') {
+            var_dump($driver->errorInfo());
+        }
+        return $result;
+    }
+    function deleteComment($id){
+        $pdo = pdo();
+        $query = "DELETE FROM `comments` WHERE id = ?";
         $driver = $pdo->prepare($query);
         $result = $driver->execute([$id]);
         if ($driver->errorInfo()[0] != '00000') {
